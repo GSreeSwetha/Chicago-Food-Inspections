@@ -1,0 +1,903 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="29" y="54" width="2230" height="382" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Dim_ViolationCodesSCSD</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+            <Position x="2119" y="140" width="100" height="40" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Text>dbo.Dim_Chicago_ViolationCodes_SCD</Text>
+              <Font name="Arial" size="8.25" style="0" />
+              <TextColor name="Black" />
+              <FillColor name="White" />
+              <Shape shape="0" />
+              <Justification Justification="4" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="1927" y="164" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldName>ViolationSK</FieldName>
+              <StartValue>1</StartValue>
+              <FieldType>Int32</FieldType>
+              <FieldSize>6</FieldSize>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="187" y="247" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>IsNotNull</Operator>
+                <Field>Violations</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2022-10-12 21:58:51</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>
+                  </Operand>
+                  <StartDate>2022-10-12 21:58:51</StartDate>
+                  <EndDate>2022-10-12 21:58:51</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!IsNull([Violations])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="319" y="248" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Inspection Date" selected="True" />
+                <SelectField field="Violations" selected="True" />
+                <SelectField field="Modified_Inspection_Date" selected="False" type="Date" size="10" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="437" y="258" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Violations</Field>
+              <Delimeters value="|" />
+              <NumFields value="1" />
+              <Flags value="16" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="691" y="258" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Violations</Field>
+              <RegExExpression value="- Comments:" />
+              <CaseInsensitve value="True" />
+              <Method>Replace</Method>
+              <Replace expression="^^">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="False" />
+                <RootName>Violations</RootName>
+                <NumFields value="3" />
+                <ErrorHandling>Warn</ErrorHandling>
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+              </ParseComplex>
+              <Match>
+                <Field>Violations_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="895" y="259" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Violations</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>Split</RootName>
+              <Delimeters value="^^" />
+              <NumFields value="2" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="8">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1195" y="260" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Inspection Date" selected="True" />
+                <SelectField field="CodeSplit1" selected="True" rename="ViolationCode" />
+                <SelectField field="CodeSplit2" selected="True" rename="ViolationDescription" />
+                <SelectField field="value1" selected="False" rename="ViolationCode" />
+                <SelectField field="vio1" selected="False" rename="ViolationDescription" />
+                <SelectField field="vio2" selected="False" rename="ViolationComment" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="9">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="1051" y="260" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Split1</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>CodeSplit</RootName>
+              <Delimeters value="." />
+              <NumFields value="2" />
+              <Flags value="16" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="1639" y="248" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="ViolationCode" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="11">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1339" y="260" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Trim([ViolationCode])" field="ViolationCode" size="1000" type="V_String" />
+                <FormulaField expression="Trim([ViolationDescription])" field="ViolationDescription" size="1000" type="V_String" />
+                <FormulaField expression="IF [Inspection Date] &gt;= '2018-07-01'  THEN 'New_Code' ELSE 'Old_Code' ENDIF" field="Version" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>ViolationCode = Trim([ViolationCode])
+ViolationDescription = Trim([ViolationDesc...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="12">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1483" y="260" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ViolationCode" selected="True" />
+                <SelectField field="ViolationDescription" selected="True" />
+                <SelectField field="Version" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="13">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1783" y="236" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>IsNotNull</Operator>
+                <Field>ViolationCode</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2022-10-17 14:24:24</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>
+                  </Operand>
+                  <StartDate>2022-10-17 14:24:24</StartDate>
+                  <EndDate>2022-10-17 14:24:24</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!IsNull([ViolationCode])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="307" y="152" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\srees\AppData\Local\Temp\Engine_17264_0812afe20a887e4793dd65eb4f2aa735_\Engine_17264_43a9b130c177874794dfcdd7b6f61914~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="498" y="200" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\srees\AppData\Local\Temp\Engine_17264_0812afe20a887e4793dd65eb4f2aa735_\Engine_17264_51884345dbe47845ad21d8c0fe6538af~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="18">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="751" y="175" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\srees\AppData\Local\Temp\Engine_17264_0812afe20a887e4793dd65eb4f2aa735_\Engine_17264_830be4cdfe80994383a1655a06b1d13b~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="20">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="559" y="258" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Inspection Date" selected="True" />
+                <SelectField field="Violations" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="21">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="787" y="259" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Inspection Date" selected="True" />
+                <SelectField field="Violations" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="22">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="931" y="163" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\srees\AppData\Local\Temp\Engine_17264_0812afe20a887e4793dd65eb4f2aa735_\Engine_17264_1ea429efc5095b48b5d48871a3057bef~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="23">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1147" y="200" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\srees\AppData\Local\Temp\Engine_17264_0812afe20a887e4793dd65eb4f2aa735_\Engine_17264_16b2e846bb6dd24fb63c7cc677c7264f~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="967" y="259" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Inspection Date" selected="True" />
+                <SelectField field="Violations" selected="True" />
+                <SelectField field="Split1" selected="True" />
+                <SelectField field="Split2" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1543" y="103" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\srees\AppData\Local\Temp\Engine_17264_0812afe20a887e4793dd65eb4f2aa735_\Engine_17264_bb461f0c5882aa49a2fe3a4a501d2fa8~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="26">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1735" y="103" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\srees\AppData\Local\Temp\Engine_17264_0812afe20a887e4793dd65eb4f2aa735_\Engine_17264_bb6219abb3abb34891bf9df1e32864f0~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1843" y="128" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\srees\AppData\Local\Temp\Engine_17264_0812afe20a887e4793dd65eb4f2aa735_\Engine_17264_a963aad82e6eae439115daf1176e3074~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2011" y="164" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ViolationSK" selected="True" />
+                <SelectField field="ViolationCode" selected="True" type="Int64" size="8" />
+                <SelectField field="ViolationDescription" selected="True" />
+                <SelectField field="Version" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="30">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="54" y="221" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <CachedCosmeticName />
+              <File FileFormat="23" RecordLimit="">aka:dadabi_azureSQL_class_gsrees|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],
+	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],
+	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],
+	[dadabi-sql-db].chicago.ChicagoFI.[License #],
+	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],
+	[dadabi-sql-db].chicago.ChicagoFI.Risk,
+	[dadabi-sql-db].chicago.ChicagoFI.Address,
+	[dadabi-sql-db].chicago.ChicagoFI.City,
+	[dadabi-sql-db].chicago.ChicagoFI.State,
+	[dadabi-sql-db].chicago.ChicagoFI.Zip,
+	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],
+	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],
+	[dadabi-sql-db].chicago.ChicagoFI.Results,
+	[dadabi-sql-db].chicago.ChicagoFI.Violations,
+	[dadabi-sql-db].chicago.ChicagoFI.Latitude,
+	[dadabi-sql-db].chicago.ChicagoFI.Longitude,
+	[dadabi-sql-db].chicago.ChicagoFI.Location 
+from [dadabi-sql-db].chicago.ChicagoFI</File>
+              <FormatSpecificOptions>
+                <SingleRowFetch>False</SingleRowFetch>
+                <ReadCentroids>False</ReadCentroids>
+                <TableStyle>Quoted</TableStyle>
+                <CacheData>False</CacheData>
+                <SessionReadOnly>True</SessionReadOnly>
+                <ReadUncommitted>False</ReadUncommitted>
+                <NoProgress>True</NoProgress>
+                <PostSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <PreSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:dadabi_azureSQL_class_gsrees
+Query=select [dadabi-sql-db].chica...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Inspection ID" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="DBA Name" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="AKA Name" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="License #" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Facility Type" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Risk" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Address" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="City" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="State" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Zip" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Inspection Date" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Inspection Type" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Results" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Violations" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Latitude" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Longitude" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+                <Field name="Location" size="254" source="File: odbc:DRIVER={SQL Server Native Client 11.0};UID=gsrees;PWD=__EncPwd1__;DATABASE=dadabi-sql-db;SERVER=dadabi-sql-server.database.windows.net|||select [dadabi-sql-db].chicago.ChicagoFI.[Inspection ID],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[DBA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[AKA Name],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[License #],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Facility Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Risk,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Address,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.City,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.State,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Zip,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Date],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.[Inspection Type],&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Results,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Violations,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Latitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Longitude,&#xA;	[dadabi-sql-db].chicago.ChicagoFI.Location &#xA;from [dadabi-sql-db].chicago.ChicagoFI" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="32">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2130" y="210" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:iowa_sql_server|||chicago.dbo.Dim_Chicago_ViolationCodes_SCD</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Upsert</OutputOption>
+                <PostSQL />
+                <TransactionSize>10000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL />
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:iowa_sql_server
+Query=chicago.dbo.Dim_Chicago_Viol...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="True" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="True" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Unique" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Unique" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="True" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="True" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Chicago_Dim_ViolationCodes_SCD</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="0f877671-d3d1-4904-841b-834fceddfb2b" />
+      <Telemetry>
+        <PreviousWorkflowId value="d9daecae-ba30-4a7c-b762-c79275bb49ed" />
+        <OriginWorkflowId value="d9daecae-ba30-4a7c-b762-c79275bb49ed" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

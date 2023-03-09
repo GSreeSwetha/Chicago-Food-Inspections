@@ -1,0 +1,435 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="54" width="420" height="260" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Chicago_Food_Inspection_stg_table</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="79" y="187" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv</File>
+              <FormatSpecificOptions>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>254</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\t</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Food_Inspections.tsv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Inspection ID" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="DBA Name" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="AKA Name" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="License #" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Facility Type" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Risk" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Address" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="City" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="State" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Zip" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Inspection Date" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Inspection Type" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Results" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Violations" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Latitude" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Longitude" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+                <Field name="Location" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Food_Inspections.tsv" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="260" y="103" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\theja\AppData\Local\Temp\Engine_1724_30a97d53a3da7d4ba4a96ef4aa50827f_\Engine_1724_f0448e7c4a1fc8459b921013523d04e7~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="212" y="168" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Inspection ID" selected="True" />
+                <SelectField field="DBA Name" selected="True" />
+                <SelectField field="AKA Name" selected="True" />
+                <SelectField field="License #" selected="True" />
+                <SelectField field="Facility Type" selected="True" />
+                <SelectField field="Risk" selected="True" />
+                <SelectField field="Address" selected="True" />
+                <SelectField field="City" selected="True" />
+                <SelectField field="State" selected="True" />
+                <SelectField field="Zip" selected="True" />
+                <SelectField field="Inspection Date" selected="True" />
+                <SelectField field="Inspection Type" selected="True" />
+                <SelectField field="Results" selected="True" />
+                <SelectField field="Violations" selected="True" />
+                <SelectField field="Latitude" selected="True" />
+                <SelectField field="Longitude" selected="True" />
+                <SelectField field="Location" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="344" y="168" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:sql_server_local|||chicago.stg_chicago_FI</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL />
+                <TransactionSize>0</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL />
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:sql_server_local
+Query=chicago.stg_chicago_FI</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="547" y="54" width="371" height="272" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Chicago_FI_Business_Licesnses_STG_TABLE</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="8">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="572" y="187" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv</File>
+              <FormatSpecificOptions>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>254</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>\t</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Business_Licenses.tsv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="ID" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LICENSE ID" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="ACCOUNT NUMBER" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="SITE NUMBER" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LEGAL NAME" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="DOING BUSINESS AS NAME" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="ADDRESS" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="CITY" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="STATE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="ZIP CODE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="WARD" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="PRECINCT" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="WARD PRECINCT" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="POLICE DISTRICT" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LICENSE CODE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LICENSE DESCRIPTION" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="BUSINESS ACTIVITY ID" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="BUSINESS ACTIVITY" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LICENSE NUMBER" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="APPLICATION TYPE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="APPLICATION CREATED DATE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="APPLICATION REQUIREMENTS COMPLETE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="PAYMENT DATE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="CONDITIONAL APPROVAL" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LICENSE TERM START DATE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LICENSE TERM EXPIRATION DATE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LICENSE APPROVED FOR ISSUANCE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="DATE ISSUED" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LICENSE STATUS" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LICENSE STATUS CHANGE DATE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="SSA" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LATITUDE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LONGITUDE" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+                <Field name="LOCATION" size="254" source="File: C:\Users\srees\Documents\NEU\DADABI\assignments\chicago food\Business_Licenses.tsv" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="9">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="680" y="187" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ID" selected="True" />
+                <SelectField field="LICENSE ID" selected="True" />
+                <SelectField field="ACCOUNT NUMBER" selected="True" />
+                <SelectField field="SITE NUMBER" selected="True" />
+                <SelectField field="LEGAL NAME" selected="True" />
+                <SelectField field="DOING BUSINESS AS NAME" selected="True" />
+                <SelectField field="ADDRESS" selected="True" />
+                <SelectField field="CITY" selected="True" />
+                <SelectField field="STATE" selected="True" />
+                <SelectField field="ZIP CODE" selected="True" />
+                <SelectField field="WARD" selected="True" />
+                <SelectField field="PRECINCT" selected="True" />
+                <SelectField field="WARD PRECINCT" selected="True" />
+                <SelectField field="POLICE DISTRICT" selected="True" />
+                <SelectField field="LICENSE CODE" selected="True" />
+                <SelectField field="LICENSE DESCRIPTION" selected="True" />
+                <SelectField field="BUSINESS ACTIVITY ID" selected="True" />
+                <SelectField field="BUSINESS ACTIVITY" selected="True" />
+                <SelectField field="LICENSE NUMBER" selected="True" />
+                <SelectField field="APPLICATION TYPE" selected="True" />
+                <SelectField field="APPLICATION CREATED DATE" selected="True" />
+                <SelectField field="APPLICATION REQUIREMENTS COMPLETE" selected="True" />
+                <SelectField field="PAYMENT DATE" selected="True" />
+                <SelectField field="CONDITIONAL APPROVAL" selected="True" />
+                <SelectField field="LICENSE TERM START DATE" selected="True" />
+                <SelectField field="LICENSE TERM EXPIRATION DATE" selected="True" />
+                <SelectField field="LICENSE APPROVED FOR ISSUANCE" selected="True" />
+                <SelectField field="DATE ISSUED" selected="True" />
+                <SelectField field="LICENSE STATUS" selected="True" />
+                <SelectField field="LICENSE STATUS CHANGE DATE" selected="True" />
+                <SelectField field="SSA" selected="True" />
+                <SelectField field="LATITUDE" selected="True" />
+                <SelectField field="LONGITUDE" selected="True" />
+                <SelectField field="LOCATION" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="704" y="103" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="11">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="788" y="180" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">aka:sql_server_local_nyc|||chicago.dbo.stg_ChicagoBL</File>
+              <Passwords />
+              <CachedCosmeticName />
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL />
+                <TransactionSize>0</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL />
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>aka:sql_server_local_nyc
+Query=chicago.dbo.stg_ChicagoBL</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Chicago_Stage_Tables</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="ab78e52a-3583-4a61-9c62-01cb63760245" />
+      <Telemetry>
+        <PreviousWorkflowId value="285cccbb-2b65-4a98-a026-04ae20e2512b" />
+        <OriginWorkflowId value="285cccbb-2b65-4a98-a026-04ae20e2512b" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
